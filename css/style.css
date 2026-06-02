@@ -1,0 +1,285 @@
+:root {
+    --body-font-family: 'Chakra Petch', sans-serif;
+    --body-font-size: 16px;
+    --body-font-weight: 400;
+    --body-font-color: #505d68;
+    --body-line-height: 1.45;
+    --heading-font-family: 'Chakra Petch', sans-serif;
+    --heading-font-color: #222426;
+    --heading-font-weight: 700;
+    --link-font-color: #222426;
+    --link-hover-font-color: #ffb424;
+    --button-font-size: 14px;
+    --button-font-weeight: 600;
+    --white-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    color: var(--body-font-color);
+    line-height: var(--body-line-height);
+    font-weight: var(--body-font-weight);
+    background-color: var(--white-color);
+    text-align: left;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input,
+textarea {
+    outline: none;
+    border: none;
+    font-family: inherit;
+}
+
+
+/* #wrapper {
+    overflow: hidden;
+} */
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.container,
+.container-fuild {
+    padding: 0 15px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: black;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 84px;
+}
+
+h2 {
+    font-size: 62px;
+}
+
+h3 {
+    font-size: 54px;
+}
+
+h4 {
+    font-size: 40px;
+}
+
+h5 {
+    font-size: 32px;
+}
+
+h6 {
+    font-size: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--link-font-color);
+    font-family: var(--body-font-family);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    border: 1px solid transparent;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    line-height: 1;
+    text-align: center;
+    border-radius: 40px;
+    color: var(--white-color);
+}
+
+header {
+    padding: 20px 0;
+    background-color: white;
+}
+
+.container--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar li {
+    position: relative;
+    list-style: none;
+}
+
+.navbar li a {
+    display: block;
+    padding: 10px 0;
+}
+
+.navbar>li.has-submenu>a {
+    position: relative;
+    padding-right: 20px;
+}
+
+.navbar>li.has-submenu>a::after {
+    content: '\f078';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Font Awesome 7 Free';
+    font-weight: 900;
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+.navbar>li.has-submenu.open>a::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+.submenu li a {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.submenu li a:hover {
+    background: #f5f5f5;
+}
+
+
+/* Hover Effect */
+
+.navbar li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.navbar>li.has-submenu>a {
+    width: 100%;
+    padding-right: 36px;
+}
+
+.navbar>li.has-submenu>a::after {
+    right: 20px;
+}
+
+.menu-toggle i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+    .menu-toggle i {
+        display: block;
+    }
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-top: 80px;
+        transform: translateX(100%);
+        transition: transform .4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, .1);
+        z-index: 1000;
+    }
+    .navbar.active {
+        transform: translateX(0);
+    }
+    .navbar li {
+        width: 100%;
+    }
+    .navbar li a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+    }
+    .navbar .submenu {
+        position: static;
+        min-width: 0;
+        width: 100%;
+        box-shadow: none;
+        background: #f8f8f8;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+        margin-left: 0;
+    }
+    .navbar>li.open>.submenu {
+        max-height: 500px;
+    }
+    .navbar .submenu li a {
+        padding-left: 34px;
+    }
+}
